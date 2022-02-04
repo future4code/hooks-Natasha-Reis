@@ -1,1 +1,2 @@
-nv jkv
+# Aprendizados da semana
+Aprendi sobre terminal e os comandos mais usados para facilitar o arendizado nele, também um pouco mais sobre comando **git** e suas funçoes, junto Github. Como enviar uma PR e mergear.
