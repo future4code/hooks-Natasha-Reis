@@ -105,3 +105,6 @@ build/
 .tern-port
 
 .DS_Store
+
+.prettierrc
+.vscode
