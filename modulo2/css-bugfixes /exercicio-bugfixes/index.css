@@ -108,6 +108,10 @@ td button {
     color: black;
 }
 
+td button:hover {
+    background-color: #c1a41e;
+}
+
 td {
     text-align: center;
 }
