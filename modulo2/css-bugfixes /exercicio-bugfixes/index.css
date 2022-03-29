@@ -29,7 +29,7 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
+div > p:first-child {
     display: inline;
 }
 
@@ -59,7 +59,6 @@ div img {
     height: 15px;
 }
 
-
 /** 
   *
   *  ESTILOS HOME 
@@ -71,20 +70,23 @@ div img {
     color: white;
 }
 
-#container-de-descricao>ol {
+#container-de-descricao > ol {
     padding: 15px 0px;
 }
 
 #container-para-comprar {
     background-color: #e7eb90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-#container-para-comprar>p {
+#container-para-comprar > p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
 }
-
 
 /**
   *
@@ -114,7 +116,6 @@ td button {
     height: 100px;
 }
 
-
 #back-button {
     background-color: white;
     width: 100px;
@@ -126,5 +127,5 @@ td button {
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #635a3d;
 }
