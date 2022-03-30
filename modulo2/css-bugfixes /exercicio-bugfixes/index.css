@@ -103,6 +103,7 @@ div:last-child {
 
 table {
     width: 60%;
+    margin: auto;
 }
 
 td button {
@@ -123,6 +124,12 @@ td {
 
 td img {
     width: 50px;
+}
+
+.container-botao-voltar{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .container-do-search {
