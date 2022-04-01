@@ -1,0 +1,13 @@
+PASSO 1 - Ler atentamente o enunciado
+
+PASSO 2 - Reler e tirar todas as informações úteis para resolução do problema 
+
+PASSO 3 - Pensar em quais serão os dados recebidos e quais serão suas possíveis saídas e entradas e criar uma função que use sua lógica 
+
+PASSO 4 - Fazer um esquema visual, montar diagramas online ou mesmo em folha para ter uma melhor visualização de resolução do problema
+
+PASSO 5 - Criar um código que está na cabeça, mesmo que seja desorganizado e que não funcione de cara
+
+PASSO 6 - Criar uma solução obvia, por mais que não seja a melhor de ser lida, com bastante detalhes.
+
+PASSO 7 - Refinar esse código feito no passo anterior para que possa ser escrito da melhor forma possível, refatorando e aprimorando o mesmo.
