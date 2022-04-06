@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    background-color: #06070c;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 550px;
+    margin: auto;
+    text-align: center;
+}
+
+.description-text {
+    margin: 11px 0 23px;
+    font-size: 16px;
+    color: #eee;
+    line-height: 32px;
+}
+
+.title-text {
+    color: #ff00ff;
+    font-size: 42px;
+    font-weight: 700;
+    margin-top: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+aside {
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    width: 18%;
+}
+
+aside .item-aside {
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+aside .item-aside img {
+    height: 12px;
+}
+
+footer {
+    display: flex;
+    margin: 30px;
+    flex-direction: column;
+}
+
+footer a {
+    margin-top: 36px;
+}
