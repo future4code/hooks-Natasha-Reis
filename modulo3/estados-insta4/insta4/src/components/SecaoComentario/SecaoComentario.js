@@ -17,8 +17,8 @@ export class SecaoComentario extends Component {
         textValue: '',
     }
 
-    onChangeComentario = (elemet) => {
-        this.setState({ textValue: elemet.currentTarget.value })
+    onChangeComentario = (element) => {
+        this.setState({ textValue: element.currentTarget.value })
     }
 
     render() {
