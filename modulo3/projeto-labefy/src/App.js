@@ -1,11 +1,21 @@
 import React from "react";
-import AddPlaylist from "./components/add-playlist";
-import ViewPlaylist from "./components/view-playlists";
 import axios from "axios";
+import ListAllPlaylists from "./components/playlist/list-playlist";
+import AddPlaylist from "./components/playlist/add-playlist";
+import styled from "styled-components";
+import "../src/App.css";
 
 const config = {
   headers: { Authorization: "natasha-reis-hooks" },
 };
+
+const TextHome = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e91e63;
+  font-size: 58px;
+`;
 
 class App extends React.Component {
   state = {
@@ -69,9 +79,9 @@ class App extends React.Component {
 
   render = () => (
     <div>
-      {/* {this.state.currentView === "AddPlaylist" ? <AddPlaylist /> : null} */}
+      <TextHome>LABEFY</TextHome>
       <AddPlaylist addPlaylist={this.addPlaylist} />
-      <ViewPlaylist
+      <ListAllPlaylists
         viewPlaylists={this.state.viewPlaylists}
         getPlaylists={this.getPlaylistsFromApi}
         deletePlaylist={this.deletePlaylist}
