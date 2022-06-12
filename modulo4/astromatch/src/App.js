@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import SeeUsers from "./components/home-page";
 import SeeMatches from "./components/page-matches";
 import matchImg from "./img/match.png";
+import voltarImg from "./img/voltar.png";
+import "../src/App.css";
 
 const App = () => {
   const [currentView, setCurrentView] = useState("see-users");
@@ -18,12 +20,13 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="container">
       {currentView === "see-users" ? (
         <>
           <img
             onClick={() => setCurrentView("see-match")}
             src={matchImg}
+            className="img-match"
             alt="Logo"
           />
           <SeeUsers />
@@ -32,7 +35,8 @@ const App = () => {
         <>
           <img
             onClick={() => setCurrentView("see-users")}
-            src={matchImg}
+            src={voltarImg}
+            className="img-match"
             alt="Logo"
           />
 
@@ -40,8 +44,10 @@ const App = () => {
         </>
       )}
 
-      <button onClick={clearMatches}> Limpar swipes e matches </button>
-    </>
+      <div className="button-clear">
+        <button onClick={clearMatches}> Limpar swipes e matches </button>
+      </div>
+    </div>
   );
 };
 

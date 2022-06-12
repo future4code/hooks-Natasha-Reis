@@ -58,24 +58,31 @@ const SeeUsers = () => {
   };
 
   return (
-    <div>
-      <img src={Img} alt="Logo" />
+    <div className="Layout-container">
+      <div className="Container-img-logo">
+        <img src={Img} alt="Logo" />
+      </div>
       {isLoading
-        ? "carregando"
+        ? "Carregando..."
         : listaUsuarios.map((user) => {
             return (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  maxWidth: "400px",
-                }}
-              >
+              <div className="Container-tela-home">
                 {user.name}, {user.age}
-                <img height={400} src={user.photo} alt={user.name} />
+                <img height={280} src={user.photo} alt={user.name} />
                 {user.bio}
-                <button onClick={botaoPassa}> X </button>
-                <button onClick={() => chooseProfile(user.id)}> ♥️ </button>
+                <div className="Container-buttom">
+                  <button className="Button-x" onClick={botaoPassa}>
+                    {" "}
+                    X{" "}
+                  </button>
+                  <button
+                    className="Button-match"
+                    onClick={() => chooseProfile(user.id)}
+                  >
+                    {" "}
+                    ♥️{" "}
+                  </button>
+                </div>
               </div>
             );
           })}
