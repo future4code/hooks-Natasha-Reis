@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { routesNames } from "../App";
+import { routesNames } from "../services/routes";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const HomePage = () => {
         {" "}
         Ver viagens
       </button>
-      <button onClick={() => goRoute("/login/")}> Área de admin</button>
+      <button onClick={() => goRoute(routesNames.login)}> Área de admin</button>
     </div>
   );
 };
