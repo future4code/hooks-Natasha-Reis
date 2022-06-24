@@ -22,7 +22,9 @@ const LoginPage = () => {
     navigate(nomeDaRota);
   };
 
-  const doLogin = () => {
+  const doLogin = (event) => {
+    event.preventDefault();
+
     const body = {
       email: email,
       password: password,
@@ -40,25 +42,30 @@ const LoginPage = () => {
   return (
     <div>
       <p>Login</p>
-      <p>
-        Nome:{" "}
-        <input
-          value={email}
-          type="email"
-          name="email"
-          onChange={(e) => handleInputChange(e, setEmail)}
-        />
-      </p>
-      <p>
-        Senha:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => handleInputChange(e, setPassword)}
-        />
-      </p>
+      <form onSubmit={doLogin}>
+        <p>
+          Nome:{" "}
+          <input
+            value={email}
+            type="email"
+            name="email"
+            required
+            onChange={(e) => handleInputChange(e, setEmail)}
+          />
+        </p>
+        <p>
+          Senha:
+          <input
+            type="password"
+            value={password}
+            required
+            pattern={"^.{3,}"}
+            onChange={(e) => handleInputChange(e, setPassword)}
+          />
+        </p>
 
-      <button onClick={doLogin}> Criar viagem</button>
+        <button> Criar viagem</button>
+      </form>
       <button onClick={() => navigate(-1)}>Voltar</button>
     </div>
   );
