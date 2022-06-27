@@ -9,12 +9,14 @@ const ListTrips = () => {
   };
 
   return (
-    <div>
-      <p>Lista de viagens</p>
-      <button onClick={() => goRoute(routesNames.applyTripForm)}>
-        {" "}
-        Inscrever-se
-      </button>
+    <div className="layout-container">
+      <p className="title">Lista de viagens</p>
+      <div>
+        <button onClick={() => goRoute(routesNames.applyTripForm)}>
+          {" "}
+          Inscrever-se
+        </button>
+      </div>
       <button onClick={() => navigate(-1)}>Voltar</button>
     </div>
   );

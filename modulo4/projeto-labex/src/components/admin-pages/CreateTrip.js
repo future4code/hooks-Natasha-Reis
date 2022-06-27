@@ -51,8 +51,8 @@ const ListTripsCreate = () => {
   };
 
   return (
-    <div>
-      <p>Criar viagem</p>
+    <div className="layout-container">
+      <p className="title">Criar viagem</p>
       <form onSubmit={createTrip}>
         <p>
           Nome:{" "}
@@ -115,11 +115,12 @@ const ListTripsCreate = () => {
             onChange={(e) => handleInputChange(e, SetdurationInDays)}
           />
         </p>
-        <button value="Check">Criar</button>
+        <div>
+          <button value="Check">Criar</button>
+
+          <button onClick={() => navigate(-1)}>Voltar</button>
+        </div>
       </form>
-      <p>
-        <button onClick={() => navigate(-1)}>Voltar</button>
-      </p>
     </div>
   );
 };

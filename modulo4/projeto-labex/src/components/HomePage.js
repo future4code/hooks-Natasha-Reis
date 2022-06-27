@@ -9,13 +9,18 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <p>LabeX</p>
-      <button onClick={() => goRoute(routesNames.tripList)}>
-        {" "}
-        Ver viagens
-      </button>
-      <button onClick={() => goRoute(routesNames.login)}> Área de admin</button>
+    <div className="layout-container">
+      <p className="title">LabeX</p>
+      <div className="container-button">
+        <button onClick={() => goRoute(routesNames.tripList)}>
+          {" "}
+          Ver viagens
+        </button>
+        <button onClick={() => goRoute(routesNames.login)}>
+          {" "}
+          Área de admin
+        </button>
+      </div>
     </div>
   );
 };

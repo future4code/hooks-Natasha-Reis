@@ -24,8 +24,8 @@ const DetailsPageTrip = () => {
   }, []);
 
   return (
-    <>
-      <p>Detalhes viagem</p>
+    <div className="layout-container">
+      <p className="title">Detalhes viagem</p>
 
       <div>Nome: {trip.name}</div>
       <div>Planeta: {trip.planet}</div>
@@ -33,7 +33,7 @@ const DetailsPageTrip = () => {
       <div>Descrição: {trip.description}</div>
 
       <button onClick={() => navigate(-1)}>Voltar</button>
-    </>
+    </div>
   );
 };
 

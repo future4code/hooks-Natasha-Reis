@@ -40,8 +40,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <p>Login</p>
+    <div className="layout-container">
+      <p className="title">Login</p>
       <form onSubmit={doLogin}>
         <p>
           Nome:{" "}
@@ -63,10 +63,11 @@ const LoginPage = () => {
             onChange={(e) => handleInputChange(e, setPassword)}
           />
         </p>
-
-        <button> Criar viagem</button>
+        <div>
+          <button> Criar viagem</button>
+          <button onClick={() => navigate(-1)}>Voltar</button>
+        </div>
       </form>
-      <button onClick={() => navigate(-1)}>Voltar</button>
     </div>
   );
 };

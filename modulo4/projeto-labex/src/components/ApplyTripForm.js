@@ -52,8 +52,8 @@ const AplicationTrips = () => {
   };
 
   return (
-    <>
-      <p>Inscreva-se</p>
+    <div className="layout-container">
+      <p className="title">Inscreva-se</p>
       <form onSubmit={doApply}>
         <p>
           Nome:{" "}
@@ -115,10 +115,12 @@ const AplicationTrips = () => {
             })}
           </select>
         </p>
-        <button> Criar viagem</button>
+        <div>
+          <button> Criar viagem</button>{" "}
+          <button onClick={() => navigate(-1)}>Voltar</button>
+        </div>
       </form>
-      <button onClick={() => navigate(-1)}>Voltar</button>
-    </>
+    </div>
   );
 };
 

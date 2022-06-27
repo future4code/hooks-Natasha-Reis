@@ -40,20 +40,21 @@ const AdminTripList = () => {
   };
 
   return (
-    <>
-      <p>Painel Administrativo</p>
+    <div className="layout-container">
+      <p className="title">Painel Administrativo</p>
 
       {trips.map((trip) => {
         return <div onClick={() => goToTripDeetails(trip.id)}>{trip.name}</div>;
       })}
-
-      <button onClick={() => navigate(-1)}>Voltar</button>
-      <button onClick={() => goRoute(routesNames.adminCreateTrip)}>
-        {" "}
-        Criar
-      </button>
-      <button onClick={doLogout}> Logout</button>
-    </>
+      <div>
+        <button onClick={() => navigate(-1)}>Voltar</button>
+        <button onClick={() => goRoute(routesNames.adminCreateTrip)}>
+          {" "}
+          Criar
+        </button>
+        <button onClick={doLogout}> Logout</button>
+      </div>
+    </div>
   );
 };
 
