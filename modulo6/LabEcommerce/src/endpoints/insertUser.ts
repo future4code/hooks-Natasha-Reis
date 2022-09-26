@@ -20,7 +20,7 @@ const insertUser = async (req: Request, res: Response): Promise<void> => {
     };
 
     await connection.raw(`
-           INSERT INTO User (id, name, email, password)
+           INSERT INTO labecommerce_users (id, name, email, password)
            VALUES(${newUser.id}, "${newUser.name}", "${newUser.email}", "${newUser.password}")
          `);
 
