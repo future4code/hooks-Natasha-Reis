@@ -1,13 +1,25 @@
 import { CustomError } from "../error/customError";
-import { EditUserInput, user } from "../model/user";
+import { EditUserInput, recipe, user } from "../model/user";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
-  public findUser = async (email: string) => {
+  public findUser = async (input: any) => {
     try {
-      const result = await UserDatabase.connection("Auth_users")
+      const result = await UserDatabase.connection("Cookenu_users")
         .select()
-        .where({ email });
+        .where({ email: input.email, id: input.id });
+
+      return result[0];
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public findRecipe = async (input: any) => {
+    try {
+      const result = await UserDatabase.connection("Cookenu_recipes")
+        .select()
+        .where({ id: input.id });
 
       return result[0];
     } catch (error: any) {
@@ -24,7 +36,22 @@ export class UserDatabase extends BaseDatabase {
           email: user.email,
           password: user.password,
         })
-        .into("Auth_users");
+        .into("Cookenu_users");
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public insertRecipe = async (recipe: recipe) => {
+    try {
+      await UserDatabase.connection
+        .insert({
+          id: recipe.id,
+          title: recipe.title,
+          description: recipe.description,
+          created_at: recipe.created_at,
+        })
+        .into("Cookenu_recipes");
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
@@ -35,7 +62,7 @@ export class UserDatabase extends BaseDatabase {
       await UserDatabase.connection
         .update({ name: user.name })
         .where({ id: user.id })
-        .into("Auth_users");
+        .into("Cookenu_users");
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

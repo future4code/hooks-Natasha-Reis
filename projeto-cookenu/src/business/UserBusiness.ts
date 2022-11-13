@@ -13,6 +13,11 @@ import {
   EditUserInputDTO,
   EditUserInput,
   LoginInputDTO,
+  GetUserDTO,
+  RecipeInputDTO,
+  recipe,
+  GetUserByIdDTO,
+  GetRecipeByIdDTO,
 } from "../model/user";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
@@ -41,6 +46,10 @@ export class UserBusiness {
 
       if (!email.includes("@")) {
         throw new InvalidEmail();
+      }
+
+      if (password.length < 6) {
+        throw new InvalidPassword();
       }
 
       const id: string = idGenerator.generateId();
@@ -75,7 +84,7 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
-      const user = await userDatabase.findUser(email);
+      const user = await userDatabase.findUser({ email });
 
       if (!user) {
         throw new UserNotFound();
@@ -110,7 +119,7 @@ export class UserBusiness {
         throw new CustomError(400, 'Preencha os campos "id", "name"');
       }
 
-      const data = tokenGenerator.tokenData(token);
+      const data = tokenGenerator.getTokenData(token);
 
       if (!data.id) {
         throw new Unauthorized();
@@ -126,6 +135,109 @@ export class UserBusiness {
       };
 
       await userDatabase.editUser(editUserInput);
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public getUser = async (data: GetUserDTO) => {
+    try {
+      const { token } = data;
+      if (!token) {
+        throw new CustomError(400, "Token invalido");
+      }
+
+      const tokenData = tokenGenerator.getTokenData(token);
+
+      if (!tokenData.id) {
+        throw new Unauthorized();
+      }
+
+      const input = {
+        id: tokenData.id,
+      };
+
+      const user = await userDatabase.findUser(input);
+
+      return user;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public getUserById = async (data: GetUserByIdDTO) => {
+    try {
+      const { token, id } = data;
+
+      if (!token) {
+        throw new CustomError(400, "Token invalido");
+      }
+
+      const tokenData = tokenGenerator.getTokenData(token);
+
+      if (!tokenData.id) {
+        throw new Unauthorized();
+      }
+
+      const input = {
+        id,
+      };
+
+      const user = await userDatabase.findUser(input);
+
+      return user;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public getRecipeById = async (data: GetRecipeByIdDTO) => {
+    try {
+      const { token, id } = data;
+
+      if (!token) {
+        throw new CustomError(400, "Token invalido");
+      }
+
+      const tokenData = tokenGenerator.getTokenData(token);
+
+      if (!tokenData.id) {
+        throw new Unauthorized();
+      }
+
+      const input = {
+        id,
+      };
+
+      const user = await userDatabase.findRecipe(input);
+
+      return user;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public createRecipe = async (input: RecipeInputDTO): Promise<void> => {
+    try {
+      const { title, description, created_at } = input;
+
+      if (!title || !description || !created_at) {
+        throw new CustomError(
+          400,
+          'Preencha os campos "created_at", "description" e "title"'
+        );
+      }
+
+      const id: string = idGenerator.generateId();
+
+      const recipe: recipe = {
+        id,
+        title,
+        description,
+        created_at,
+      };
+
+      await userDatabase.insertRecipe(recipe);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

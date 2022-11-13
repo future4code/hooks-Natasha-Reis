@@ -9,7 +9,7 @@ export class TokenGenerator {
     return token;
   };
 
-  public tokenData = (token: string): AuthenticationData => {
+  public getTokenData = (token: string): AuthenticationData => {
     const payload = jwt.verify(
       token,
       process.env.JWT_KEY as string
